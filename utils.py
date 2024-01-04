@@ -495,7 +495,7 @@ def get_train_loader(loader, dataset, batch_size,
         else:
             assert grouper is not None
             groups, group_counts = grouper.metadata_to_group(
-                dataset.dataset.metadata_array,
+                dataset.dataset.metadata_array, # change here by junior
                 return_counts=True)
             group_weights = 1 / group_counts
             weights = group_weights[groups]
@@ -503,7 +503,7 @@ def get_train_loader(loader, dataset, batch_size,
             # Replacement needs to be set to True, otherwise we'll run out of minority samples
             sampler = WeightedRandomSampler(weights, len(dataset), replacement=True)
             return DataLoader(
-                dataset,
+                dataset.dataset, # change by junior
                 shuffle=False, # The WeightedRandomSampler already shuffles
                 sampler=sampler,
                 collate_fn=dataset.collate,
