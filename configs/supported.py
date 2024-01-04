@@ -50,7 +50,7 @@ models = ['resnet50', 'bert-base-uncased', 'distilbert-base-uncased']
 optimizers = ['SGD', 'Adam', 'AdamW']
 
 # See scheduler.py
-schedulers = ['linear_schedule_with_warmup', 'cosine_schedule_with_warmup', 'ReduceLROnPlateau', 'StepLR', 'MultiStepLR']
+schedulers = ['Linear_schedule_with_warmup', 'Cosine_schedule_with_warmup', 'ReduceLROnPlateau', 'StepLR', 'MultiStepLR']
 
 # See losses.py
 losses = ['cross_entropy', 'lm_cross_entropy', 'MSE', 'multitask_bce', 'cross_entropy_logits']
