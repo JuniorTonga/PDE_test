@@ -517,8 +517,11 @@ def get_train_loader(loader, dataset, batch_size,
         assert n_groups_per_batch is not None
         if n_groups_per_batch > grouper.n_groups:
             raise ValueError(f'n_groups_per_batch was set to {n_groups_per_batch} but there are only {grouper.n_groups} groups specified.')
-
+         
+        print('grouperrrrr', grouper)
+        print(dir(grouper))
         group_ids = grouper.metadata_to_group(dataset.metadata_array)
+        
         batch_sampler = GroupSampler(
             group_ids=group_ids,
             batch_size=batch_size,
