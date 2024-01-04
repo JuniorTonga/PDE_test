@@ -5,6 +5,7 @@ def initialize_scheduler(config, optimizer, n_train_steps):
     if config.scheduler is None:
         return None
     elif config.scheduler == 'linear_schedule_with_warmup':
+        print('je suis bien dans linear schedule ')
         from transformers import get_linear_schedule_with_warmup
         scheduler = get_linear_schedule_with_warmup(
             optimizer,
@@ -36,6 +37,7 @@ def initialize_scheduler(config, optimizer, n_train_steps):
         step_every_batch = False
         use_metric = False
     else:
+        print('je n\'ai pas trouvé ')
         raise ValueError(f'Scheduler: {config.scheduler} not supported.')
 
     # add an step_every_batch field
