@@ -13,6 +13,7 @@ def initialize_scheduler(config, optimizer, n_train_steps):
             optimizer,
             num_training_steps=n_train_steps,
             **config.scheduler_kwargs)
+        print('sheeeeeeeeeeeeeeeeeeeeeee', scheduler)
         step_every_batch = True
         use_metric = False
     elif config.scheduler == 'cosine_schedule_with_warmup':
