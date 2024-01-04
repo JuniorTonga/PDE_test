@@ -111,7 +111,7 @@ parser.add_argument('--optimizer_kwargs', nargs='*', action=ParseKwargs, default
 parser.add_argument('--reinit_optim', default=None, type=int, help='Epoch to reinitialize the optimizer')
 
 # Scheduler
-parser.add_argument('--scheduler', choices=['Linear_schedule_with_warmup', 'Cosine_schedule_with_warmup', 'ReduceLROnPlateau', 'StepLR', 'MultiStepLR'])
+parser.add_argument('--scheduler', choices=['linear_schedule_with_warmup', 'cosine_schedule_with_warmup', 'ReduceLROnPlateau', 'StepLR', 'MultiStepLR'])
 parser.add_argument('--scheduler_kwargs', nargs='*', action=ParseKwargs, default={},
                     help='keyword arguments for scheduler initialization passed as key1=value1 key2=value2')
 parser.add_argument('--scheduler_metric_split', choices=['train', 'val'], default='val')
