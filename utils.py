@@ -527,7 +527,7 @@ def get_train_loader(loader, dataset, batch_size,
 
         print(len(dataset.dataset))
         print(len(dataset.dataset.metadata_array))
-        group_ids = grouper.metadata_to_group(dataset.dataset)
+        group_ids = grouper.metadata_to_group(dataset.dataset.metadata_array)
         
         batch_sampler = GroupSampler(
             group_ids=group_ids,
@@ -536,7 +536,7 @@ def get_train_loader(loader, dataset, batch_size,
             uniform_over_groups=uniform_over_groups,
             distinct_groups=distinct_groups)
 
-        return DataLoader(dataset,
+        return DataLoader(dataset.dataset,
               shuffle=None,
               sampler=None,
               collate_fn=dataset.collate,
