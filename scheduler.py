@@ -1,6 +1,7 @@
 from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR, MultiStepLR
 from transformers import get_linear_schedule_with_warmup
 from transformers import get_cosine_schedule_with_warmup
+import transformers
 
 def initialize_scheduler(config, optimizer, n_train_steps):
     # construct schedulers
@@ -8,7 +9,7 @@ def initialize_scheduler(config, optimizer, n_train_steps):
         return None
     elif config.scheduler == 'linear_schedule_with_warmup':
         print('je suis bien dans linear schedule ')
-        scheduler = get_linear_schedule_with_warmup(
+        scheduler =transformers.get_linear_schedule_with_warmup(
             optimizer,
             num_training_steps=n_train_steps,
             **config.scheduler_kwargs)
