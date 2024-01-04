@@ -495,7 +495,7 @@ def get_train_loader(loader, dataset, batch_size,
         else:
             assert grouper is not None
             groups, group_counts = grouper.metadata_to_group(
-                dataset.dataset.dataset.metadata_array,
+                dataset.dataset.metadata_array,
                 return_counts=True)
             group_weights = 1 / group_counts
             weights = group_weights[groups]
@@ -527,7 +527,7 @@ def get_train_loader(loader, dataset, batch_size,
 
         print(len(dataset.dataset))
         print(len(dataset.dataset.metadata_array))
-        group_ids = grouper.metadata_to_group(dataset.dataset.metadata_array)
+        group_ids = grouper.metadata_to_group(dataset.dataset)
         
         batch_sampler = GroupSampler(
             group_ids=group_ids,
