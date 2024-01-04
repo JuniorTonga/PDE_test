@@ -522,7 +522,7 @@ def get_train_loader(loader, dataset, batch_size,
         print(dir(grouper))
         print('datsettttttt', dataset)
         print('meata datasettt', dir(dataset))
-        group_ids = grouper.metadata_to_group(dataset.metadata_array)
+        group_ids = grouper.metadata_to_group(dataset.dataset.metadata_array)
         
         batch_sampler = GroupSampler(
             group_ids=group_ids,
