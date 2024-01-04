@@ -38,9 +38,9 @@ def initialize_scheduler(config, optimizer, n_train_steps):
         scheduler = MultiStepLR(optimizer, milestones=config.scheduler_multistep_milestones, gamma=config.scheduler_multistep_gamma, verbose=config.scheduler_kwargs['verbose'])
         step_every_batch = False
         use_metric = False
-    else:
-        print('je n\'ai pas trouvé ')
-        raise ValueError(f'Scheduler: {config.scheduler} not supported.')
+    #else:
+        #print('je n\'ai pas trouvé ')
+        #raise ValueError(f'Scheduler: {config.scheduler} not supported.')
 
     # add an step_every_batch field
     scheduler.step_every_batch = step_every_batch
